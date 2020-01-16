@@ -19,6 +19,12 @@ namespace PartyInvites.Controllers
         {
             return View();
         }
-     
+
+        [HttpPost]
+        public ViewResult RsvpForm(GuestResponse guestResponse)
+        {
+            return View("Thanks", guestResponse);
+        }
+
     }
 }
