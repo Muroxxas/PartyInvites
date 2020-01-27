@@ -14,7 +14,7 @@
 </head>
 <body>
     <div>
-        @using (Html.BeginForm("RsvpForm","HomeController",FormMethod.Post)) {
+        @using (Html.BeginForm("RsvpForm","Home",FormMethod.Post)) {
             <p>Your name: @Html.TextBoxFor(x =>x.Name) </p>
             <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
             <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>

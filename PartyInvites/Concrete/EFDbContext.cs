@@ -9,7 +9,7 @@ namespace PartyInvites.Concrete
 {
     public class EFDbContext : DbContext
     {
-       public DbSet<GuestResponse> PartyInvitesTable { get; set; }
+       public DbSet<GuestResponse> GuestResponses { get; set; }
 
         public EFDbContext() : base("name=EFDbContext")
         {

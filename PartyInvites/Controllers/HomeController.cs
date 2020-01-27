@@ -17,7 +17,6 @@ namespace PartyInvites.Controllers
             return View();
         }
 
-        [HttpGet]
         public ViewResult RsvpForm()
         {
             return View();
@@ -35,7 +34,7 @@ namespace PartyInvites.Controllers
                 guest.Phone = model.Phone;
                 guest.WillAttend = model.WillAttend;
 
-                db.PartyInvitesTable.Add(guest);
+                db.GuestResponses.Add(guest);
                 db.SaveChanges();
 
                 return View("Thanks", model);
