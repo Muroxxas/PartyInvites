@@ -25,7 +25,7 @@ namespace PartyInvites.Controllers
         
        
         [HttpPost]
-        public ActionResult RsvpForm(GuestResponse model)
+        public ViewResult RsvpForm(GuestResponse model)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace PartyInvites.Controllers
                 db.PartyInvitesTable.Add(guest);
                 db.SaveChanges();
 
-                return RedirectToAction("Index");
+                return View("Thanks", model);
             }
             catch(Exception ex)
             {
