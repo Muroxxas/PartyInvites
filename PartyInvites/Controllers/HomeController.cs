@@ -26,22 +26,29 @@ namespace PartyInvites.Controllers
         [HttpPost]
         public ViewResult RsvpForm(GuestResponse model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                GuestResponse guest = new GuestResponse();
-                guest.Name = model.Name;
-                guest.Email = model.Email;
-                guest.Phone = model.Phone;
-                guest.WillAttend = model.WillAttend;
+                try
+                {
+                    GuestResponse guest = new GuestResponse();
+                    guest.Name = model.Name;
+                    guest.Email = model.Email;
+                    guest.Phone = model.Phone;
+                    guest.WillAttend = model.WillAttend;
 
-                db.GuestResponses.Add(guest);
-                db.SaveChanges();
+                    db.GuestResponses.Add(guest);
+                    db.SaveChanges();
 
-                return View("Thanks", model);
+                    return View("Thanks", model);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            catch(Exception ex)
-            {
-                throw ex;
+            else {
+                //Validation error.
+                return View();
             }
         }
 
